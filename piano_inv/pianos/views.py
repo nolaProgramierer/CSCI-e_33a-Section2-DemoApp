@@ -12,6 +12,7 @@ class AddPianoForm(forms.Form):
     finish = forms.CharField(label="Finish: ", max_length=50)
     price = forms.IntegerField(label="Price: ")
 
+
 def index(request):
     context = {"pianos": pianos}
     return render(request, "pianos/index.html", context)
@@ -36,6 +37,7 @@ def add_piano(request):
         # If the form isn't valid render the form with invalid entries
         else: return render(request, "pianos/add_piano.html", {"form": form})
     return render(request, "pianos/add_piano.html", { "form": AddPianoForm()})
+
 
 
 
