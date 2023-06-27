@@ -1,0 +1,15 @@
+{% block body %}
+
+<h1>Add Piano</h1>
+
+<form action="{% url 'add_piano' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add Piano">
+</form>
+
+<div>
+    <a href="{% url 'index' %}">Back to piano list</a>
+</div>
+
+{% endblock %}
