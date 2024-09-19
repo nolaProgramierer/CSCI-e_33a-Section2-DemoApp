@@ -1,0 +1,19 @@
+{% extends "pianos/layout.html" %}
+
+{% block body %}
+
+    <div id="detail-container">
+        <h1>Piano Detail</h1>
+        {% if piano %}
+            <p>Brand: {{ piano.brand }}</p>
+            <p>Finish: {{ piano.finish }}</p>
+            <p>Price: ${{ piano.price|floatformat:"2g" }}</p>
+        {% else %}
+            <p>Piano not found.</p>
+        {% endif %}
+        <a href="{% url 'edit_piano' brand=piano.brand finish=piano.finish price=piano.price %}">Edit piano</a>
+         <a href="{% url 'remove_piano' brand=piano.brand finish=piano.finish price=piano.price %}">Remove piano</a>
+
+    </div>
+
+{% endblock %}

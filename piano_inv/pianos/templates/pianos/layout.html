@@ -7,7 +7,14 @@
         <link href="{% static 'pianos/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        {% block body %}
-        {% endblock %}
+        <div id="navbar">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'add_piano' %}">Add piano</a>
+        </div>
+        <div id="body-block">
+            <h1 id="layout-title">Section2 Django Demo App</h1>
+            {% block body %}
+            {% endblock %}
+        </div> 
     </body>
 </html>

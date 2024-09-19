@@ -1,0 +1,17 @@
+{% extends "pianos/layout.html" %}
+
+{% block body %}
+
+<div id="index-container">
+    <h1>Are you sure you want to delete this piano?</h1>
+    <ul>
+        <li>{{piano.brand}}</li>
+        <li>{{piano.finish}}</li>
+        <li>{{piano.price}}</li>
+    </ul>
+    <div>
+        <a href="{% url 'remove_piano' piano.brand  %}">Delete Piano</a>
+    </div>
+</div>
+
+{% endblock %}

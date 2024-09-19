@@ -2,14 +2,27 @@
 
 {% block body %}
 
-<h1>Pianos</h1>
-<ul>
+<div id="index-container">
+    <h2>Piano Inventory</h2>
     {% for piano in pianos %}
-    <li>Brand: {{ piano.brand }}, Price: ${{ piano.price|floatformat:"2g" }}, Finish: {{ piano.finish }}</li>
+        <div class="piano-card">
+            <div class="card-item">
+                <span class="item-label">Brand:</span> 
+                <a href="{% url 'piano_detail' brand=piano.brand finish=piano.finish price=piano.price %}">{{ piano.brand }}</a>
+            </div>
+            <div class="card-item">
+                <span class="item-label">Finish:</span> 
+                {{ piano.finish }}
+            </div>
+            <div class="card-item">
+                <span class="item-label">Price:</span> 
+                ${{ piano.price|floatformat:"2g" }}
+            </div>
+        </div>
     {% endfor %}
-</ul>
-<div>
-    <a href="{% url 'add_piano' %}">Add a piano</a>
+    <!-- <div>
+        <a href="{% url 'add_piano' %}">Add a piano</a>
+    </div> -->
 </div>
 
 {% endblock %}
